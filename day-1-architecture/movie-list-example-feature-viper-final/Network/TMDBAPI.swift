@@ -9,7 +9,7 @@ import Foundation
 
 struct TokenStorage {
     static var accessToken: String {
-        return "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJiNDM5Y2FhYWUxYWJhOTcwOGI4NzAyMjJkZmM1OTk4YSIsIm5iZiI6MTY0MDQzMTQwMi45MjcsInN1YiI6IjYxYzZmZjJhNjNhNjk1MDA5N2EzMDIwNyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.uw99qhN3NDcEUhySfhU3AjuUbZvanngd0GhpCIfWPvE"
+        return ""
     }
 }
 
