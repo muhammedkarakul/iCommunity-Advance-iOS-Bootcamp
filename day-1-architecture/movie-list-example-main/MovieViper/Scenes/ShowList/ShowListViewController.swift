@@ -1,23 +1,26 @@
 //
-//  ShowroomData.swift
-//  MovieMVC
+//  ShowListViewController.swift
+//  MovieViper
 //
-//  Created by Seyfeddin Bassarac on 24.09.2025.
+//  Created by Mete Karakul on 27.09.2025.
 //
 
 import UIKit
 
-struct ShowroomData {
-    let contentType: ContentType
-    let environmentType: MediaType
-}
-
-class PopularShowsViewController: UIViewController {
+class ShowListViewController: UIViewController, ShowListViewProtocol {
     
-    var environmentType: MediaType = .tv
-    var contentType: ContentType = .popular
+    var presenter: ShowListPresenterProtocol!
     
-     
+    var series: [ShowListCellPresentation] = []
+    
+    // MARK: - Views
+    
+    private let activityIndicator: UIActivityIndicatorView = {
+        let indicator = UIActivityIndicatorView(style: .large)
+        indicator.translatesAutoresizingMaskIntoConstraints = false
+        indicator.hidesWhenStopped = true
+        return indicator
+    }()
     
     private var mainCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -35,83 +38,23 @@ class PopularShowsViewController: UIViewController {
         return collectionView
     }()
     
-    private let activityIndicator: UIActivityIndicatorView = {
-        let indicator = UIActivityIndicatorView(style: .large)
-        indicator.translatesAutoresizingMaskIntoConstraints = false
-        indicator.hidesWhenStopped = true
-        return indicator
-    }()
-    
-    required init?(coder: NSCoder) {
-        super.init(coder: coder)
-    }
-    
-    func configure(contentType: ContentType, environmentType: MediaType) {
-        self.contentType = contentType
-        self.environmentType = environmentType
-    }
+    // MARK: - View Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupNavigationBar()
-        mainCollectionView.delegate = self
         mainCollectionView.dataSource = self
-        navigationController?.navigationBar.prefersLargeTitles = false
-        
+        mainCollectionView.delegate = self
         setupView()
-        
-        loadInitialData()
+        presenter.loadData()
     }
     
-    deinit {
-        NotificationCenter.default.removeObserver(self)
-    }
-    
+    // MARK: - View Setup
+
     private func setupNavigationBar() {
+        navigationController?.navigationBar.prefersLargeTitles = false
         if #available(iOS 26.0, *) {
             mainCollectionView.topEdgeEffect.style = .hard
-        }
-    }
-    
-    private func loadInitialData() {
-        isLoading = true
-        activityIndicator.startAnimating()
-        fetchData { [weak self] in
-            self?.isLoading = false
-            self?.activityIndicator.stopAnimating()
-        }
-    }
-    
-    private func loadMoreData() {
-        guard !isLoading else { return }
-        
-        isLoading = true
-        fetchData { [weak self] in
-            self?.isLoading = false
-        }
-    }
-    
-    private func fetchData(completion: (() -> Void)? = nil) {
-        switch contentType {
-        case .popular:
-            switch environmentType {
-            case .tv:
-                tvSeriesStore.fetchPopularTvSeries { [weak self] result in
-                    switch result {
-                    case .success(_):
-                        self?.reloadCollectionView()
-                    case .failure(let error):
-                        print("error: \(error)")
-                    }
-                    completion?()
-                }
-            }
-        }
-    }
-    
-    func reloadCollectionView() {
-        DispatchQueue.main.async { [weak self] in
-            self?.mainCollectionView.reloadData()
         }
     }
     
@@ -134,9 +77,27 @@ class PopularShowsViewController: UIViewController {
             activityIndicator.centerYAnchor.constraint(equalTo: view.centerYAnchor)
         ])
     }
+    
+    // MARK: - ShowListPresenterOutput
+
+    func handleOutput(_ output: ShowListPresenterOutput) {
+        switch output {
+        case .showLoading(let isLoading):
+            if isLoading {
+                activityIndicator.startAnimating()
+            } else {
+                activityIndicator.stopAnimating()
+            }
+            
+        case .showTVSeries(let series):
+            self.series.append(contentsOf: series)
+            
+            mainCollectionView.reloadData()
+        }
+    }
 }
 
-extension PopularShowsViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+extension ShowListViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let offsetY = scrollView.contentOffset.y
@@ -144,34 +105,20 @@ extension PopularShowsViewController: UICollectionViewDelegate, UICollectionView
         let height = scrollView.frame.size.height
         
         if offsetY > contentHeight - height * 2 {
-            loadMoreData()
+            presenter.loadData()
         }
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        switch contentType {
-        case .popular:
-            switch environmentType {
-            case .tv:
-                return tvSeriesStore.popularTvSeries.count
-            }
-        }
+        return self.series.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PosterCollectionViewCell.identifier, for: indexPath) as! PosterCollectionViewCell
         
-        let posterPath: String?
-        switch contentType {
-        case .popular:
-            switch environmentType {
-            case .tv:
-                posterPath = tvSeriesStore.popularTvSeries[indexPath.row].posterPath
-            }
-        }
+        let cellPresentation = series[indexPath.row]
         
-        
-        cell.configure(posterPath: posterPath, showBorder: true)
+        cell.configure(presentation: cellPresentation)
         return cell
     }
     
@@ -188,14 +135,6 @@ extension PopularShowsViewController: UICollectionViewDelegate, UICollectionView
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        switch contentType {
-        case .popular:
-            switch environmentType {
-            case .tv:
-                let tvSeries: TVSeries = tvSeriesStore.popularTvSeries[indexPath.row]
-                let detailVC = DetailedContentViewController(contentId: tvSeries.id, mediaType: .tv)
-                navigationController?.pushViewController(detailVC, animated: true)
-            }
-        }
+        presenter.selectTVSeries(indexPath.item)
     }
 }

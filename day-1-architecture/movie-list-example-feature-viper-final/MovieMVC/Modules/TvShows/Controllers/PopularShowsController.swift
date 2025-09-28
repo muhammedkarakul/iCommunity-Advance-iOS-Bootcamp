@@ -17,7 +17,9 @@ class PopularShowsViewController: UIViewController {
     var environmentType: MediaType = .tv
     var contentType: ContentType = .popular
     
-     
+    private var tvSeriesStore = TVSeriesStore()
+    
+    private var isLoading = false
     
     private var mainCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()

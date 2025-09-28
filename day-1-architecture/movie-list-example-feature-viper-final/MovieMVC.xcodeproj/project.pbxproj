@@ -7,10 +7,55 @@
 	objects = {
 
 /* Begin PBXFileReference section */
+		CD756C6D2E85E30100022FD7 /* MovieVIPER.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MovieVIPER.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD9C27222E83FF0C00BBB542 /* MovieMVC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MovieMVC.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		CD756C7E2E85E30200022FD7 /* Exceptions for "MovieVIPER" folder in "MovieVIPER" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = CD756C6C2E85E30100022FD7 /* MovieVIPER */;
+		};
+		CD756C9C2E85E54E00022FD7 /* Exceptions for "Models" folder in "MovieVIPER" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Genre.swift,
+				TVSeries.swift,
+				Types.swift,
+			);
+			target = CD756C6C2E85E30100022FD7 /* MovieVIPER */;
+		};
+		CD756CA12E85E55A00022FD7 /* Exceptions for "Managers" folder in "MovieVIPER" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				TMDBImageManager.swift,
+			);
+			target = CD756C6C2E85E30100022FD7 /* MovieVIPER */;
+		};
+		CD756CA62E85E56600022FD7 /* Exceptions for "Network" folder in "MovieVIPER" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				TMDBAPI.swift,
+			);
+			target = CD756C6C2E85E30100022FD7 /* MovieVIPER */;
+		};
+		CD756CAA2E85F06D00022FD7 /* Exceptions for "MovieMVC" folder in "MovieVIPER" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Modules/TvShows/Cells/PosterCollectionViewCell.swift,
+			);
+			target = CD756C6C2E85E30100022FD7 /* MovieVIPER */;
+		};
+		CD756CB32E85F60D00022FD7 /* Exceptions for "Presentations" folder in "MovieVIPER" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				ShowListCellPresentation.swift,
+			);
+			target = CD756C6C2E85E30100022FD7 /* MovieVIPER */;
+		};
 		CD9C27342E83FF0C00BBB542 /* Exceptions for "MovieMVC" folder in "MovieMVC" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
@@ -21,10 +66,51 @@
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
+		CD756C6E2E85E30100022FD7 /* MovieVIPER */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				CD756C7E2E85E30200022FD7 /* Exceptions for "MovieVIPER" folder in "MovieVIPER" target */,
+			);
+			path = MovieVIPER;
+			sourceTree = "<group>";
+		};
+		CD756C952E85E54E00022FD7 /* Models */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				CD756C9C2E85E54E00022FD7 /* Exceptions for "Models" folder in "MovieVIPER" target */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		CD756C9E2E85E55400022FD7 /* Managers */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				CD756CA12E85E55A00022FD7 /* Exceptions for "Managers" folder in "MovieVIPER" target */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		CD756CA32E85E55F00022FD7 /* Network */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				CD756CA62E85E56600022FD7 /* Exceptions for "Network" folder in "MovieVIPER" target */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		CD756CAD2E85F5DF00022FD7 /* Presentations */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				CD756CB32E85F60D00022FD7 /* Exceptions for "Presentations" folder in "MovieVIPER" target */,
+			);
+			path = Presentations;
+			sourceTree = "<group>";
+		};
 		CD9C27242E83FF0C00BBB542 /* MovieMVC */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
 				CD9C27342E83FF0C00BBB542 /* Exceptions for "MovieMVC" folder in "MovieMVC" target */,
+				CD756CAA2E85F06D00022FD7 /* Exceptions for "MovieMVC" folder in "MovieVIPER" target */,
 			);
 			path = MovieMVC;
 			sourceTree = "<group>";
@@ -32,6 +118,13 @@
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		CD756C6A2E85E30100022FD7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		CD9C271F2E83FF0C00BBB542 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -45,7 +138,12 @@
 		CD9C27192E83FF0C00BBB542 = {
 			isa = PBXGroup;
 			children = (
+				CD756CAD2E85F5DF00022FD7 /* Presentations */,
+				CD756CA32E85E55F00022FD7 /* Network */,
+				CD756C9E2E85E55400022FD7 /* Managers */,
+				CD756C952E85E54E00022FD7 /* Models */,
 				CD9C27242E83FF0C00BBB542 /* MovieMVC */,
+				CD756C6E2E85E30100022FD7 /* MovieVIPER */,
 				CD9C27232E83FF0C00BBB542 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -54,6 +152,7 @@
 			isa = PBXGroup;
 			children = (
 				CD9C27222E83FF0C00BBB542 /* MovieMVC.app */,
+				CD756C6D2E85E30100022FD7 /* MovieVIPER.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -61,6 +160,28 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		CD756C6C2E85E30100022FD7 /* MovieVIPER */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CD756C7F2E85E30200022FD7 /* Build configuration list for PBXNativeTarget "MovieVIPER" */;
+			buildPhases = (
+				CD756C692E85E30100022FD7 /* Sources */,
+				CD756C6A2E85E30100022FD7 /* Frameworks */,
+				CD756C6B2E85E30100022FD7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				CD756C6E2E85E30100022FD7 /* MovieVIPER */,
+			);
+			name = MovieVIPER;
+			packageProductDependencies = (
+			);
+			productName = MovieVIPER;
+			productReference = CD756C6D2E85E30100022FD7 /* MovieVIPER.app */;
+			productType = "com.apple.product-type.application";
+		};
 		CD9C27212E83FF0C00BBB542 /* MovieMVC */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = CD9C27352E83FF0C00BBB542 /* Build configuration list for PBXNativeTarget "MovieMVC" */;
@@ -74,6 +195,10 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
+				CD756C952E85E54E00022FD7 /* Models */,
+				CD756C9E2E85E55400022FD7 /* Managers */,
+				CD756CA32E85E55F00022FD7 /* Network */,
+				CD756CAD2E85F5DF00022FD7 /* Presentations */,
 				CD9C27242E83FF0C00BBB542 /* MovieMVC */,
 			);
 			name = MovieMVC;
@@ -93,6 +218,9 @@
 				LastSwiftUpdateCheck = 2600;
 				LastUpgradeCheck = 2600;
 				TargetAttributes = {
+					CD756C6C2E85E30100022FD7 = {
+						CreatedOnToolsVersion = 26.0;
+					};
 					CD9C27212E83FF0C00BBB542 = {
 						CreatedOnToolsVersion = 26.0;
 					};
@@ -113,11 +241,19 @@
 			projectRoot = "";
 			targets = (
 				CD9C27212E83FF0C00BBB542 /* MovieMVC */,
+				CD756C6C2E85E30100022FD7 /* MovieVIPER */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		CD756C6B2E85E30100022FD7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		CD9C27202E83FF0C00BBB542 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -128,6 +264,13 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		CD756C692E85E30100022FD7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		CD9C271E2E83FF0C00BBB542 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -138,6 +281,68 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
+		CD756C802E85E30200022FD7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = MovieVIPER/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.seyfeddin.MovieVIPER;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		CD756C812E85E30200022FD7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = MovieVIPER/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.seyfeddin.MovieVIPER;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		CD9C27362E83FF0C00BBB542 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -324,6 +529,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		CD756C7F2E85E30200022FD7 /* Build configuration list for PBXNativeTarget "MovieVIPER" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CD756C802E85E30200022FD7 /* Debug */,
+				CD756C812E85E30200022FD7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		CD9C271D2E83FF0C00BBB542 /* Build configuration list for PBXProject "MovieMVC" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
